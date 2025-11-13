@@ -56,3 +56,83 @@ class MyProfileApp extends StatelessWidget {
 2nd one
 
 
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyLayoutApp());
+
+class MyLayoutApp extends StatelessWidget {
+  const MyLayoutApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Stack(
+          children: [
+            Container(color: Colors.lightBlueAccent), // Background
+            Center(
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.9),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text(
+                      'Welcome to Flutter!',
+                      style: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 15),
+
+                    // Inline replacement for IconText class
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: const [
+                        Column(
+                          children: [
+                            Icon(Icons.school, size: 40, color: Colors.blue),
+                            Text('Learn'),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Icon(Icons.code, size: 40, color: Colors.green),
+                            Text('Build'),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Icon(Icons.star, size: 40, color: Colors.orange),
+                            Text('Shine'),
+                          ],
+                        ),
+                      ],
+                    ),
+
+                    const SizedBox(height: 15),
+                    const Text(
+                      'Using Row, Column & Stack together!',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
